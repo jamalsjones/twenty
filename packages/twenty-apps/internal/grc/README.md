@@ -20,7 +20,7 @@ On top of the 19 objects:
 - 35 saved views (tables, kanban boards, a renewal calendar) and a sidebar organized by area.
 - A "GRC overview" dashboard: KPIs, risk heat map, framework compliance, a queue of every upcoming or overdue deadline, and charts.
 - Custom tabs on records: a vendor risk profile with contract gap detection, a framework coverage drill-down, and an assessment review screen.
-- 14 logic functions (below), 3 roles (GRC manager, Control owner, Auditor), and an AI agent with two skills.
+- 13 logic functions (below), 3 roles (GRC manager, Control owner, Auditor), and an AI agent with two skills.
 
 ## Automation
 
