@@ -1135,7 +1135,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"esbuild@npm:^0.28.1, esbuild@npm:~0.28.0":
+"esbuild@npm:0.28.2, esbuild@npm:^0.28.1, esbuild@npm:~0.28.0":
   version: 0.28.2
   resolution: "esbuild@npm:0.28.2"
   dependencies:
@@ -1419,6 +1419,7 @@ __metadata:
   dependencies:
     "@types/node": "npm:^24.7.2"
     "@types/react": "npm:^19.0.0"
+    esbuild: "npm:0.28.2"
     oxlint: "npm:^0.16.0"
     react: "npm:^19.0.0"
     react-dom: "npm:^19.0.0"

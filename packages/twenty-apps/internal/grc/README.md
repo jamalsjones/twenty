@@ -20,7 +20,20 @@ On top of the 19 objects:
 - 35 saved views (tables, kanban boards, a renewal calendar) and a sidebar organized by area.
 - A "GRC overview" dashboard: KPIs, risk heat map, framework compliance, a queue of every upcoming or overdue deadline, and charts.
 - Custom tabs on records: a vendor risk profile with contract gap detection, a framework coverage drill-down, and an assessment review screen.
-- 13 logic functions (below), 3 roles (GRC manager, Control owner, Auditor), and an AI agent with two skills.
+- 15 logic functions (below, plus two that serve the console), 3 roles (GRC manager, Control owner, Auditor), and an AI agent with two skills.
+
+## Two interfaces
+
+- **GRC console** at `/s/grc/console`: a purpose-built interface with its own sign-in, module navigation, workflow steppers, the heat map, framework coverage, the vendor risk panel and the assessment review screen. It is a React app in `console/` that talks to Twenty's REST API as the signed-in user, so roles and permissions still apply. Its labels, options and field types come from the same `src/schema` as the data model.
+- **Twenty's own UI** at `/`: the admin back office for bulk edits, imports, attachments, permissions and settings. Each console record has an "Edit in admin" link to it.
+
+Build and deploy the console with the app:
+
+```bash
+yarn deploy        # yarn build:console, then twenty apply
+```
+
+The console bundle is written to `public/console/` (not committed) and served through two public routes. The page is a shell with no data in it; nothing is readable before sign-in.
 
 ## Automation
 
@@ -113,7 +126,8 @@ src/
   logic-functions/   Server-side automation
   front-components/  Dashboard widgets and record tabs
   roles/ agents/ skills/
-scripts/       Framework importer and demo seed
+console/       The GRC console (React), bundled by scripts/build-console.ts
+scripts/       Framework importer, demo seed and console build
 ```
 
 To add a field, add one line to the object in `src/schema/objects.ts`. To add an object, add its spec there and a one-line file in `src/objects/`. Entity ids are derived from names, so there are no UUIDs to maintain; renaming a field or object is treated as delete and create.
@@ -128,4 +142,6 @@ To add a field, add one line to the object in `src/schema/objects.ts`. To add an
 - No continuous vendor monitoring feeds (security ratings, breach news).
 - The AI agent and skills are defined but were not exercised, because the test server had no AI model configured.
 - Compliance roll-up recomputes everything on each change. That is fine for a few thousand requirements and will need to become incremental beyond that.
+- The console edits workflow stages and creates vendors, risks, findings and control tests. Other field edits go through the admin UI.
+- The console treats every status list as a linear stepper, including ones with alternative outcomes such as approved or rejected.
 - No automated tests yet.

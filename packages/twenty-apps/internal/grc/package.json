@@ -17,11 +17,14 @@
     "seed": "tsx scripts/seed.ts",
     "import-framework": "tsx scripts/import-framework.ts",
     "lint": "oxlint -c .oxlintrc.json .",
-    "lint:fix": "oxlint --fix -c .oxlintrc.json ."
+    "lint:fix": "oxlint --fix -c .oxlintrc.json .",
+    "build:console": "tsx scripts/build-console.ts",
+    "deploy": "yarn build:console && twenty apply"
   },
   "devDependencies": {
     "@types/node": "^24.7.2",
     "@types/react": "^19.0.0",
+    "esbuild": "0.28.2",
     "oxlint": "^0.16.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",

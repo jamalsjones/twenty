@@ -41,3 +41,4 @@ yarn-error.log*
 *.tsbuildinfo
 *.d.ts
 .cache
+public/console

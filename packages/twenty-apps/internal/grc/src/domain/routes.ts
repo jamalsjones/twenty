@@ -6,4 +6,6 @@ export const ROUTES = {
   vendorPortal: '/grc/portal',
   recomputeCompliance: '/grc/compliance/recompute',
   runMonitor: '/grc/monitor/run',
+  console: '/grc/console',
+  consoleScript: '/grc/console/app.js',
 } as const;
