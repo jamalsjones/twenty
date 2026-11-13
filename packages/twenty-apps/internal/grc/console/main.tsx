@@ -204,7 +204,7 @@ const Shell = ({ onSignOut }: { onSignOut: () => void }) => {
           </div>
         ))}
         <div className="side-foot">
-          <a href="/" target="_blank" rel="noreferrer">
+          <a href="/welcome" target="_blank" rel="noreferrer">
             Admin workspace
           </a>
           <button type="button" onClick={onSignOut}>
