@@ -70,9 +70,7 @@ const Login = ({ onSignedIn }: { onSignedIn: () => void }) => {
     <div className="login">
       <form className="login-card" onSubmit={handleSubmit}>
         <div className="row">
-          <span className="brand-mark" style={{ color: '#fff' }}>
-            G
-          </span>
+          <span className="brand-mark">G</span>
           <h2>GRC Console</h2>
         </div>
         <div className="sub">Sign in with your workspace account.</div>

@@ -74,6 +74,11 @@ export const Badge = ({ tone, children }: BadgeProps) => (
   <span className={`badge ${tone}`}>{children}</span>
 );
 
+// Colour is reserved for fields that report state or severity; descriptive
+// fields such as category or type render as neutral chips.
+const STATE_FIELDS =
+  /status|stage|tier|risk|level|severity|criticality|classification|access|effectiveness|result|answer|verdict|likelihood|impact/i;
+
 type OptionBadgeProps = {
   objectKey: string;
   fieldName: string;
@@ -89,7 +94,13 @@ export const OptionBadge = ({
     ([candidate]) => candidate === value,
   );
 
-  return option ? <Badge tone={option[2]}>{option[1]}</Badge> : null;
+  if (!option) return null;
+
+  return (
+    <Badge tone={STATE_FIELDS.test(fieldName) ? option[2] : 'neutral'}>
+      {option[1]}
+    </Badge>
+  );
 };
 
 type FieldValueProps = {

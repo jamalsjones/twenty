@@ -83,7 +83,7 @@ export const HeatMap = () => {
             <button
               key={option}
               type="button"
-              className={`btn ${basis === option ? 'primary' : ''}`}
+              className={`btn ${basis === option ? 'selected' : ''}`}
               onClick={() => {
                 setBasis(option);
                 setSelected(null);
@@ -161,7 +161,7 @@ const Kpi = ({
   tone: string;
   hint: string;
 }) => (
-  <div className={`card kpi ${tone}`}>
+  <div className="card kpi">
     <div className="kpi-label">{label}</div>
     <div className="kpi-value">{value}</div>
     <div className="kpi-hint">{hint}</div>
@@ -552,7 +552,7 @@ export const VendorPanel = ({
         <div
           className="dial"
           style={{
-            background: `conic-gradient(${tone} ${(score ?? 0) * 3.6}deg, #e3e8eb 0deg)`,
+            background: `conic-gradient(${tone} ${(score ?? 0) * 3.6}deg, rgba(29, 27, 24, 0.09) 0deg)`,
           }}
         >
           <div className="dial-inner">
@@ -560,7 +560,7 @@ export const VendorPanel = ({
               <b>{score ?? '–'}</b>
               <br />
               <span className="muted" style={{ fontSize: 11 }}>
-                security score
+                score
               </span>
             </span>
           </div>
@@ -853,7 +853,7 @@ export const AssessmentPanel = ({
                   <div className="row" style={{ flexWrap: 'nowrap' }}>
                     <button
                       type="button"
-                      className={`btn ${response.verdict === 'ACCEPTED' ? 'primary' : ''}`}
+                      className={`btn ${response.verdict === 'ACCEPTED' ? 'selected' : ''}`}
                       disabled={isBusy}
                       onClick={() =>
                         run(
@@ -869,7 +869,7 @@ export const AssessmentPanel = ({
                     </button>
                     <button
                       type="button"
-                      className={`btn ${response.verdict === 'FOLLOW_UP' ? 'primary' : ''}`}
+                      className={`btn ${response.verdict === 'FOLLOW_UP' ? 'selected' : ''}`}
                       disabled={isBusy}
                       onClick={() =>
                         run(
@@ -965,7 +965,7 @@ export const FrameworkPanel = ({ framework }: { framework: AnyRecord }) => {
         </span>
         <button
           type="button"
-          className={`btn ${gapsOnly ? 'primary' : ''}`}
+          className={`btn ${gapsOnly ? 'selected' : ''}`}
           onClick={() => setGapsOnly(!gapsOnly)}
         >
           {gapsOnly ? 'Showing gaps only' : 'Show gaps only'}
